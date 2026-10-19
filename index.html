@@ -3,50 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashutosh | Portfolio</title>
+    <title>Ashutosh | Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 40px;
-            background-color: #f4f6f8;
-            color: #333;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
         }
-        header {
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Profile Header */
+        .hero {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px 30px;
+            border-radius: 16px;
             text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
-        h1 { margin: 0; color: #24292e; }
-        p { color: #555; }
-        section {
-            margin-top: 20px;
-            background: white;
-            padding: 20px;
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: #0f172a;
+            border: 3px solid var(--accent);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 10px 22px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: var(--border);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-chip {
+            background: #0f172a;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .project-box {
+            background: #0f172a;
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+            transition: 0.2s ease;
+        }
+
+        .project-box:hover {
+            border-color: var(--accent);
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .project-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Ashutosh</h1>
-        <p>Developer & Creator</p>
-    </header>
 
-    <section>
-        <h2>About Me</h2>
-        <p>Welcome to my personal portfolio website! Here you can check out my projects and skills.</p>
-    </section>
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="avatar">A</div>
+            <h1>Ashutosh</h1>
+            <div class="tagline">Mobile App & Web Developer</div>
+            <p>Passionate about building intuitive mobile applications and clean, responsive websites. Turning ideas into digital reality.</p>
+            <div class="links">
+                <a href="https://github.com/Ashutosh339-pixel" target="_blank" class="btn">View GitHub</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </header>
 
-    <section>
-        <h2>Projects</h2>
-        <ul>
-            <li>Project 1: Coming Soon</li>
-            <li>Project 2: Coming Soon</li>
-        </ul>
-    </section>
+        <!-- About Me -->
+        <section class="card">
+            <h2>About Me</h2>
+            <p style="color: var(--text-muted);">
+                Hello! I'm a developer focused on creating useful, user-friendly digital products. Currently working on mobile applications and expanding my skills in modern software development.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="card">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <span class="skill-chip">Mobile App Development</span>
+                <span class="skill-chip">HTML5 / CSS3</span>
+                <span class="skill-chip">JavaScript</span>
+                <span class="skill-chip">Git & GitHub</span>
+                <span class="skill-chip">UI / UX Design</span>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="card">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-box">
+                    <div class="project-title">🚀 Mobile Application Project</div>
+                    <p>An upcoming cross-platform mobile application currently under design and active development.</p>
+                </div>
+                <div class="project-box">
+                    <div class="project-title">🌐 Personal Portfolio Website</div>
+                    <p>Designed and hosted on GitHub Pages to showcase completed projects, technical skills, and experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <p>© 2026 Ashutosh. Built with GitHub Pages.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
