@@ -3,185 +3,472 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashutosh | Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Ashutosh | Full-Stack & App Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
+            --bg: #090d16;
+            --surface: #111726;
+            --surface-hover: #172033;
+            --border: rgba(255, 255, 255, 0.08);
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.3);
+            --accent: #818cf8;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 50px 20px 100px;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(129, 140, 248, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
         .container {
-            max-width: 800px;
-            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 35px;
         }
 
-        /* Profile Header */
+        /* Hero */
         .hero {
-            background: var(--card-bg);
+            background: rgba(17, 23, 38, 0.85);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border);
-            padding: 40px 30px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            padding: 45px 35px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
-        .avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
-            display: flex;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .status-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: 700;
-            color: #0f172a;
-            border: 3px solid var(--accent);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 6px;
-        }
-
-        .tagline {
-            color: var(--accent);
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.82rem;
             font-weight: 600;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .status-dot {
+            width: 8px; height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+        }
+
+        .name-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
             margin-bottom: 12px;
         }
 
-        .hero p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 20px;
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .links {
+        .bio {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin-bottom: 28px;
+        }
+
+        .cta-group {
             display: flex;
-            justify-content: center;
-            gap: 15px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
-        .btn {
-            background: #2563eb;
-            color: white;
+        .btn-primary {
+            background: var(--primary);
+            color: #090d16;
             text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-weight: 700;
             font-size: 0.95rem;
-            transition: 0.2s ease;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px var(--primary-glow);
+            border: none;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background: #1d4ed8;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-main);
-        }
-
-        .btn-outline:hover {
-            background: var(--border);
-        }
-
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 16px;
-        }
-
-        h2 {
-            font-size: 1.4rem;
+        /* Section Cards */
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
             margin-bottom: 16px;
-            color: var(--accent);
+            color: #fff;
+        }
+
+        .card-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(56, 189, 248, 0.08);
+            border-color: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .projects-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px;
+            transition: all 0.25s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-3px);
+            background: var(--surface-hover);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .project-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .badge-live {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .project-desc {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            margin-bottom: 14px;
+        }
+
+        .tiny-chip {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            color: #94a3b8;
+            border: 1px solid var(--border);
+            margin-right: 6px;
+        }
+
+        /* ================= POPUP MODAL ================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: #111726;
+            border: 1px solid var(--primary);
+            box-shadow: 0 15px 50px rgba(56, 189, 248, 0.25);
+            max-width: 450px;
+            width: 100%;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 18px;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .modal-icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .modal-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .modal-box p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 22px;
+        }
+
+        /* ================= CHATBOT WIDGET ================= */
+        .chatbot-btn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #090d16;
+            width: 58px; height: 58px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px var(--primary-glow);
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: transform 0.25s ease;
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 95px; right: 25px;
+            width: 340px;
+            height: 460px;
+            background: #111726;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: all 0.25s ease;
+        }
+
+        .chat-window.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .chat-header {
+            background: #172033;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chat-header h4 {
+            font-size: 0.95rem;
+            color: #fff;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* Skills */
-        .skills-grid {
+        .chat-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.88rem;
+        }
+
+        .msg {
+            max-width: 82%;
+            padding: 9px 13px;
+            border-radius: 12px;
+            line-height: 1.4;
+        }
+
+        .msg-bot {
+            background: #1e293b;
+            color: #f1f5f9;
+            align-self: flex-start;
+            border: 1px solid var(--border);
+        }
+
+        .msg-user {
+            background: var(--primary);
+            color: #090d16;
+            font-weight: 600;
+            align-self: flex-end;
+        }
+
+        .quick-options {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 6px;
+            margin-top: 6px;
         }
 
-        .skill-chip {
-            background: #0f172a;
+        .quick-btn {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 15px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 10px;
+            background: #172033;
+            border-top: 1px solid var(--border);
+            gap: 8px;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            background: #090d16;
             border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #e2e8f0;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            outline: none;
         }
 
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+        .chat-input-area input:focus {
+            border-color: var(--primary);
         }
 
-        .project-box {
-            background: #0f172a;
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 12px;
-            transition: 0.2s ease;
-        }
-
-        .project-box:hover {
-            border-color: var(--accent);
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
-
-        .project-box p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .chat-send-btn {
+            background: var(--primary);
+            border: none;
+            color: #090d16;
+            padding: 0 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
         }
 
         footer {
             text-align: center;
-            color: var(--text-muted);
+            color: #64748b;
             font-size: 0.85rem;
             margin-top: 20px;
         }
@@ -189,58 +476,190 @@
 </head>
 <body>
 
+    <!-- POPUP MODAL -->
+    <div class="modal-overlay" id="welcomeModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">✖</button>
+            <div class="modal-icon">👋</div>
+            <h3>Welcome to my Portfolio!</h3>
+            <p>Hi there! Thanks for visiting. Feel free to explore my projects or interact with my personal AI assistant below.</p>
+            <button class="btn-primary" onclick="closeModal()">Explore Portfolio 🚀</button>
+        </div>
+    </div>
+
+    <!-- MAIN PORTFOLIO -->
     <div class="container">
-        <!-- Hero Section -->
+        <!-- Hero -->
         <header class="hero">
-            <div class="avatar">A</div>
-            <h1>Ashutosh</h1>
-            <div class="tagline">Mobile App & Web Developer</div>
-            <p>Passionate about building intuitive mobile applications and clean, responsive websites. Turning ideas into digital reality.</p>
-            <div class="links">
-                <a href="https://github.com/Ashutosh339-pixel" target="_blank" class="btn">View GitHub</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            <div class="status-badge">
+                <span class="status-dot"></span> Available for Projects & Opportunities
+            </div>
+            <h1 class="name-title"><span class="gradient-text">Hi, I'm Ashutosh.</span></h1>
+            <p class="bio">
+                Aspiring software developer building modern applications and digital tools. Exploring mobile engineering, clean architecture, and responsive web design.
+            </p>
+            <div class="cta-group">
+                <a href="https://github.com/Ashutosh339-pixel" target="_blank" class="btn-primary">GitHub Profile</a>
+                <button onclick="toggleChat()" class="btn-secondary">💬 Chat with Assistant</button>
             </div>
         </header>
 
-        <!-- About Me -->
-        <section class="card">
-            <h2>About Me</h2>
-            <p style="color: var(--text-muted);">
-                Hello! I'm a developer focused on creating useful, user-friendly digital products. Currently working on mobile applications and expanding my skills in modern software development.
-            </p>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="card">
-            <h2>Skills & Technologies</h2>
-            <div class="skills-grid">
-                <span class="skill-chip">Mobile App Development</span>
-                <span class="skill-chip">HTML5 / CSS3</span>
-                <span class="skill-chip">JavaScript</span>
-                <span class="skill-chip">Git & GitHub</span>
-                <span class="skill-chip">UI / UX Design</span>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="card">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-box">
-                    <div class="project-title">🚀 Mobile Application Project</div>
-                    <p>An upcoming cross-platform mobile application currently under design and active development.</p>
-                </div>
-                <div class="project-box">
-                    <div class="project-title">🌐 Personal Portfolio Website</div>
-                    <p>Designed and hosted on GitHub Pages to showcase completed projects, technical skills, and experience.</p>
+        <!-- Skills -->
+        <section>
+            <h2 class="section-title">⚡ Tech Stack & Skills</h2>
+            <div class="card-panel">
+                <div class="skills-container">
+                    <span class="skill-tag">📱 Mobile App Development</span>
+                    <span class="skill-tag">🌐 HTML5 & Modern CSS</span>
+                    <span class="skill-tag">⚡ JavaScript</span>
+                    <span class="skill-tag">🐙 Git & Version Control</span>
+                    <span class="skill-tag">🎨 UI/UX Design Concepts</span>
+                    <span class="skill-tag">🚀 Problem Solving</span>
                 </div>
             </div>
         </section>
 
-        <footer id="contact">
-            <p>© 2026 Ashutosh. Built with GitHub Pages.</p>
+        <!-- Projects -->
+        <section>
+            <h2 class="section-title">💼 Featured Work</h2>
+            <div class="projects-stack">
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="project-name">Mobile App System</div>
+                        <span class="badge-live">In Development</span>
+                    </div>
+                    <p class="project-desc">
+                        A modern cross-platform mobile application designed for high performance, intuitive UX, and clean architecture.
+                    </p>
+                    <div>
+                        <span class="tiny-chip">Mobile</span>
+                        <span class="tiny-chip">Architecture</span>
+                        <span class="tiny-chip">Frontend</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="project-name">Personal Portfolio Website</div>
+                        <span class="badge-live">Live</span>
+                    </div>
+                    <p class="project-desc">
+                        Modern responsive portfolio featuring glassmorphic UI, entrance modal, and an interactive assistant bot.
+                    </p>
+                    <div>
+                        <span class="tiny-chip">HTML5</span>
+                        <span class="tiny-chip">CSS3</span>
+                        <span class="tiny-chip">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 Ashutosh • Hosted on GitHub Pages
         </footer>
     </div>
 
+    <!-- FLOATING CHATBOT -->
+    <button class="chatbot-btn" id="chatToggle" onclick="toggleChat()" title="Chat with Bot">💬</button>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h4>🤖 Ashutosh's Assistant</h4>
+            <button class="chat-close-btn" onclick="toggleChat()">✖</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-bot">
+                Hello! 👋 I'm Ashutosh's AI assistant. What would you like to know?
+                <div class="quick-options">
+                    <button class="quick-btn" onclick="sendQuick('skills')">Skills?</button>
+                    <button class="quick-btn" onclick="sendQuick('projects')">Projects?</button>
+                    <button class="quick-btn" onclick="sendQuick('contact')">Contact?</button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Ask something..." onkeypress="handleKey(event)">
+            <button class="chat-send-btn" onclick="handleSend()">➤</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Popup display on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('welcomeModal').classList.add('active');
+            }, 600);
+        });
+
+        function closeModal() {
+            document.getElementById('welcomeModal').classList.remove('active');
+        }
+
+        // 2. Chatbot toggle
+        function toggleChat() {
+            const chatWin = document.getElementById('chatWindow');
+            chatWin.classList.toggle('open');
+        }
+
+        // 3. Chatbot Logic
+        function appendMessage(text, sender) {
+            const container = document.getElementById('chatMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'msg ' + (sender === 'user' ? 'msg-user' : 'msg-bot');
+            msgDiv.innerText = text;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function botReply(query) {
+            query = query.toLowerCase();
+            let reply = "I'm still learning! You can ask about Ashutosh's skills, projects, or how to contact him.";
+
+            if (query.includes('hi') || query.includes('hello') || query.includes('hey')) {
+                reply = "Hey there! How can I assist you with Ashutosh's portfolio today?";
+            } else if (query.includes('skill')) {
+                reply = "Ashutosh works on Mobile App Development, HTML5, CSS3, JavaScript, Git & GitHub, and UI/UX design!";
+            } else if (query.includes('project')) {
+                reply = "Currently, he is developing a Cross-Platform Mobile App and this modern portfolio site.";
+            } else if (query.includes('contact') || query.includes('hire') || query.includes('email')) {
+                reply = "You can connect with Ashutosh via his GitHub profile: github.com/Ashutosh339-pixel";
+            } else if (query.includes('who') || query.includes('about')) {
+                reply = "Ashutosh is an ambitious developer passionate about creating modern apps and websites.";
+            }
+
+            setTimeout(() => {
+                appendMessage(reply, 'bot');
+            }, 400);
+        }
+
+        function handleSend() {
+            const input = document.getElementById('userInput');
+            const text = input.value.trim();
+            if (text) {
+                appendMessage(text, 'user');
+                input.value = '';
+                botReply(text);
+            }
+        }
+
+        function sendQuick(topic) {
+            if (topic === 'skills') {
+                appendMessage("What are your skills?", 'user');
+                botReply("skills");
+            } else if (topic === 'projects') {
+                appendMessage("Tell me about your projects", 'user');
+                botReply("project");
+            } else if (topic === 'contact') {
+                appendMessage("How can I contact you?", 'user');
+                botReply("contact");
+            }
+        }
+
+        function handleKey(e) {
+            if (e.key === 'Enter') handleSend();
+        }
+    </script>
 </body>
 </html>
